@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 class Auth {
   constructor() {
-    this.authenticated = false;
+    this.authenticated = true;
   }
 
   //   login(cb) {
