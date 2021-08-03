@@ -26,11 +26,12 @@ questionController.postQuestion = (req, res, next) => {
   // ----------> url comes from websockets - 
   //userid comes from user controller (prev step in create question). 
 
-  const url = "testKenny22"
+  const url = "testRachel22"
   const { ssid } = req.cookies; // { id: 7 }
   const { title, description } = req.body;
-  const params = [url,title,description,ssid];
-  const insertQuestion = 'INSERT INTO questions (url,title,description,creator) VALUES ($1,$2,$3,$4) RETURNING questions'
+  const isOpen = true;
+  const params = [url,title,description,ssid,isOpen];
+  const insertQuestion = 'INSERT INTO questions (url,title,description,creator,isopen) VALUES ($1,$2,$3,$4,$5) RETURNING questions'
 
   pool
     .query(insertQuestion, params)

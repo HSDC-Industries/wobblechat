@@ -4,7 +4,7 @@ const { Pool } = require("pg");
 // Then export that object so that we can make queries to our DB.
 // This object is used inside of our controllers.
 const uri =
-  "postgres://pyrlesph:y49KNIFGACz5VEWNtTL8QH8auBdno8ha@chunee.db.elephantsql.com/pyrlesph";
+  "postgres://omkpkxdv:crQ1vGvY9HGr_q2U9N6TanZoAjlKtOuV@chunee.db.elephantsql.com/omkpkxdv";
 const pool = new Pool({
   connectionString: uri,
 }
