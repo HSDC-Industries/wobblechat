@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import auth from "./Auth";
 
-const Login = (props) => {
+const Signup = (props) => {
   const [userData, setUserData] = useState({ username: "", password: "" });
   const history = useHistory();
 
@@ -24,8 +24,9 @@ const Login = (props) => {
   };
 
   const handleSubmit = (e) => {
+    //check if username already exists in database,
     e.preventDefault();
-    fetch(`/api/users/login`, {
+    fetch("/api/users/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,32 +46,30 @@ const Login = (props) => {
   };
 
   return (
-    <div className='login-page'>
-      <h1>WobbleChat</h1>
-      <div className='login-box'>
-        <form onSubmit={handleSubmit}>
-          <input
-            id="username"
-            className="form-field"
-            type="text"
-            name="username"
-            value={userData.username}
-            onChange={handleUsernameInputChange}
-          />
-          <input
-            id="password"
-            className="form-field"
-            type="text"
-            name="username"
-            value={userData.password}
-            onChange={handlePasswordInputChange}
-          />
-          <input className="signup-or-login-button" type="submit" value="login" />
-        </form>
-        <Link to='/signup'><button className="signup-or-login-button">Sign Up</button></Link>
-      </div>
+    <div>
+      <h1>Welcome, please sign up.</h1>
+      <form onSubmit={handleSubmit}>
+        <input
+          id="username"
+          className="form-field"
+          type="text"
+          name="username"
+          value={userData.username}
+          onChange={handleUsernameInputChange}
+        />
+        <input
+          id="username"
+          className="form-field"
+          type="text"
+          name="username"
+          value={userData.password}
+          onChange={handlePasswordInputChange}
+        />
+        <input type="submit" value="Signup" />
+      </form>
+      <Link to='/login'>Login</Link>
     </div>
   );
 };
 
-export default Login;
+export default Signup;
