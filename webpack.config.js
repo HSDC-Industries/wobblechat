@@ -10,8 +10,8 @@ module.exports = {
   mode: process.env.NODE_ENV, // "development" or "production"
   module: {
     rules: [
-      {
-        test: /\.jsx?/,
+      { ///\.jsx?/
+        test: /.(js|jsx)$/,
         use: {
           loader: "babel-loader",
           options: {
@@ -20,11 +20,9 @@ module.exports = {
         },
       },
       {
-        //Andrew: Not sure how to load in css files but trying this way since it seems the former version only processed scss files...
-        //test: /\.s[ac]ss$/i,
-        test: /\.css$/i,
-
-        use: ["style-loader", "css-loader", "sass-loader"],
+        test: /\.s[ac]ss$/i,
+        exclude: /node_modules/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },
