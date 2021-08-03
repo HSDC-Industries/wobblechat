@@ -45,31 +45,35 @@ const Login = (props) => {
   };
 
   return (
-    <div className='login-page'>
-      <h1>WobbleChat</h1>
-      <div className='login-box'>
-        <form onSubmit={handleSubmit}>
-          <input
-            id="username"
-            className="form-field"
-            type="text"
-            name="username"
-            value={userData.username}
-            onChange={handleUsernameInputChange}
-          />
-          <input
-            id="password"
-            className="form-field"
-            type="text"
-            name="username"
-            value={userData.password}
-            onChange={handlePasswordInputChange}
-          />
-          <input className="signup-or-login-button" type="submit" value="login" />
-        </form>
-        <Link to='/signup'><button className="signup-or-login-button">Sign Up</button></Link>
+    <div className = "outer-div">
+      <div className = "wobble-div">
+        <h1>WobbleChat</h1>
       </div>
+    <div className='login-page'>
+      <form onSubmit={handleSubmit}>
+        <input
+          id="username"
+          className="form-field"
+          type="text"
+          name="username"
+          placeholder="username"
+          value={userData.username}
+          onChange={handleUsernameInputChange}
+        />
+        <input
+          id="password"
+          className="form-field"
+          type="text"
+          name="username"
+          placeholder="password"
+          value={userData.password}
+          onChange={handlePasswordInputChange}
+        />
+        <input className="form-button" type="submit" value="login" />
+      </form>
+      <Link className="signup-or-login" to='/signup'>Sign up</Link>
     </div>
+  </div>
   );
 };
 

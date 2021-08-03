@@ -5,8 +5,8 @@ import Login from "./Login";
 import Signup from "./Signup";
 import ProtectedRoute from "./ProtectedRoute";
 import MainAppContainer from "./containers/MainAppContainer";
-import "./stylesheets/styles.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+//import "./stylesheets/styles.css";
+//import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
   return (
