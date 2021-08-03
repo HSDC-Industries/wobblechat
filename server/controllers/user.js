@@ -14,8 +14,8 @@ userController.createUser = async (req, res, next) => {
   // Create hashed version of password.
   let hashedPassword;
   try {
-    const salt = bcrypt.genSaltSync(10);
-    hashedPassword = bcrypt.hashSync(password, salt);
+    const salt = await bcrypt.genSalt(10);
+    hashedPassword = await bcrypt.hash(password, salt);
   } catch (err) {
     return next({ status: 500, message: err.message });
   }
