@@ -15,7 +15,23 @@ const CreateQuestionForm = (props) => {
   //not working
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`This is what was submitted: ${title}`);
+    fetch(`/api/questions/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title,
+        description,
+      }),
+    })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => {
+        console.log("Error making fetch request in createQuestion", err);
+      });
+    //alert(`This is what was submitted: ${title, description}`);
   }
 
   return (
