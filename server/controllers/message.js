@@ -7,7 +7,7 @@ const messageController = {};
 //puts details into question
 messageController.getMessages = (req, res, next) => {
   //needs to pull existing Messages related to Questions (join tables)
-  const prevMessages = `SELECT messages.*, questions.url FROM messages INNER JOIN questions ON messages.questionId = questions.id AND questions.id = $1`;
+  const prevMessages = `SELECT messages.* FROM messages INNER JOIN questions ON messages.questionId = questions.id AND questions.id = $1`;
   const params = [req.params.id];
   pool
     .query(prevMessages, params)
@@ -27,11 +27,11 @@ messageController.getMessages = (req, res, next) => {
 messageController.postMessage = (req, res, next) => {
   // ------> needs to GET data from websockets
   const dateCreated = new Date().toLocaleString();
-  const { questionId, content } = req.body;
-  const params = [dateCreated, questionId, content];
+  const { id, answer } = req.body;
+  const params = [dateCreated, id, answer];
   const insertMessage =
     "INSERT INTO messages (dateCreated, questionId, content) VALUES ($1,$2,$3) RETURNING *";
-  if (!dateCreated || !questionId || !content)
+  if (!id || !answer)
     return next({ status: 401, message: "Invalid message data" });
   pool
     .query(insertMessage, params)
