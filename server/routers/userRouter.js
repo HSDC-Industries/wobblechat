@@ -1,7 +1,7 @@
 const { Router } = require("express");
-const userController = require("../controllers/user");
-const cookieController = require("../controllers/cookie");
-const questionController = require("../controllers/question");
+const userController = require("../controllers/userController");
+const cookieController = require("../controllers/cookieController");
+const questionController = require("../controllers/questionController");
 
 const userRouter = Router();
 
@@ -27,7 +27,6 @@ userRouter.post(
 userRouter.post(
   "/logout",
   cookieController.unsetCookies,
-  questionController.setInactive,
   (_req, res) => {
     res.status(200).redirect("/");
   }
