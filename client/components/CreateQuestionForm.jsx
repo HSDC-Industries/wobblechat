@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 //Requirements: one inherited prop: userId, must interact with DB and consequently update state upon confirmation of 
 //  successful post to db
 
-const CreateQuestionForm = (props) => {
+const CreateQuestionForm = ({ setNewQuestion }) => {
   //using useState hook to enable state in component
   //first item = current value, second item = a setter function, to update value, destrctured via [] and initialized to empty string
   const [title, setTitle] = useState('');
@@ -27,6 +27,7 @@ const CreateQuestionForm = (props) => {
     })
       .then((response) => {
         console.log(response);
+        setNewQuestion(true);
       })
       .catch((err) => {
         console.log("Error making fetch request in createQuestion", err);
@@ -55,8 +56,6 @@ const CreateQuestionForm = (props) => {
       </label>
       <br/>
       <input type="submit" value="Submit" />
-
-      <li>Question title is: { title } </li>
     </form>
   );
 }

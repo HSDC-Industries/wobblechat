@@ -1,59 +1,44 @@
-import React from 'react';
-// import { FontAwesomeIcon as FAIcon } from '@fortawesome/react-fontawesome';
-// import { faQuestionCircle } from '@fortawesome/free-regular-svg-icons';
-import { Link } from 'react-router-dom';
-import QuestionCard from '../components/QuestionCard';
-
-const QuestionsContainer = ({ questions }) => {
-  //questions object passed down as prop from MainAppContainer
-  //  const [{ questionId, isActive, title, description, chatURL }] = questions;
-
-  console.log(questions);
+import React, { Component, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import CreateQuestionForm from "../components/CreateQuestionForm";
+import Chat from "../components/Chat";
+import QuestionCard from "../components/QuestionCard";
 
 
-  const activeQuestionObjects = questions.map(
-    ({ id, title, description, creator, isopen }) => {
-      // chrome dev tools is showing "isopen" as lowercase for some reason
-      if(isopen){
+const QuestionsContainer = ({ newQuestion }) => {
+
+  const[questions, setQuestions] = useState([]);
+
+  useEffect( () => {
+    fetch("/api/questions")
+    .then((res) => res.json())
+    .then((data) => {
+      setFetchData(true);
+      setQuestions(data);
+    })
+    .catch((err) =>
+      console.log("error in NewMainAppContainer fetch: ", err)
+    );
+  }, [newQuestion]);
+
+
+  const questionsArray = questions.map(
+    ({ id, title, description }) => {
         return (
           <QuestionCard
             key={id}
             title={title}
             description={description}
-            creator={creator}
+            id={id}
           />
-        );
-      }
+        ); 
     }
-  );
-
-  const inactiveQuestionObjects = questions.map(
-    ({ id, title, description, creator, isopen }) => {
-      // chrome dev tools is showing "isopen" as lowercase for some reason
-      if(!isopen){
-      return (
-        <QuestionCard
-        key={id}
-        title={title}
-        description={description}
-        creator={creator}
-      />
-      );
-    }
-  }
   );
 
   return (
     <div className="question-window">
-      <h2>
-      Active questions </h2>
-      {activeQuestionObjects}
-<br />
-      <h2>
-      Inactive questions </h2>
-      {inactiveQuestionObjects}
-
-
+      <h2>Questions</h2>
+      {questionsArray}
     </div>
   );
 };
