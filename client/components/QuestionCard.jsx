@@ -20,9 +20,8 @@ const QuestionCard = (props) => {
 
 
   return (
-    <div key={id} className="question-container">
-      <h3>{title}</h3>
-      <p>{description}</p>
+    <div key={id} className="question-line">
+        <span>{`${title}: `}{description}</span>
       <Link to={{
         pathname: `/question/${id}`,
         state: {
@@ -30,7 +29,9 @@ const QuestionCard = (props) => {
           title: title, 
           description: description
         }
-     }}><button variant="primary" className="min-button">Answer question</button></Link>
+        }}>
+        <button variant="primary" className="min-button">Answer question</button>
+     </Link>
     </div>  
   );
 };
