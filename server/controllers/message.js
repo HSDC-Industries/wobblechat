@@ -26,9 +26,8 @@ messageController.getMessages = (req, res, next) => {
 //postMessage should create a Message from the websockets call
 messageController.postMessage = (req, res, next) => {
   // ------> needs to GET data from websockets
-  const dateCreated = "1/1/1990";
-  const questionId = "4";
-  const content = "test";
+  const dateCreated = new Date().toLocaleString();
+  const { questionId, content } = req.body;
   const params = [dateCreated, questionId, content];
   const insertMessage =
     "INSERT INTO messages (dateCreated, questionId, content) VALUES ($1,$2,$3) RETURNING *";
