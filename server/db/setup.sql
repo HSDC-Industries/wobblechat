@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS questions (
   id SERIAL PRIMARY KEY,
   title varchar(500) NOT NULL,
   description text NOT NULL,
-  url varchar(100) UNIQUE NOT NULL,
+  url varchar(100) UNIQUE,
   isAnswered boolean DEFAULT false NOT NULL,
   creator integer REFERENCES users(id) NOT NULL,
   /* Can you do a foreign key reference of a boolean in another table? The boolean is not a key... */

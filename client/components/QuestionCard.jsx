@@ -9,7 +9,7 @@ import Button from 'react-bootstrap/Button';
 
 const QuestionCard = (props) => {
   //props from QuestionsContainer get assigned to each instance of QuestionCard
-  const { id, title, description, url, creator, isOpen } = props;
+  const { id, title, description, creator, isOpen } = props;
 
   // console.log(props);
 

@@ -46,28 +46,34 @@ const Signup = (props) => {
   };
 
   return (
-    <div>
-      <h1>Welcome, please sign up.</h1>
+    <div className ="outer-div">
+      <div className = "wobble-div">
+        <h1>WobbleChat</h1>
+      </div>
+      <div className='login-page'>
       <form onSubmit={handleSubmit}>
         <input
           id="username"
           className="form-field"
           type="text"
           name="username"
+          placeholder="username"
           value={userData.username}
           onChange={handleUsernameInputChange}
         />
         <input
-          id="username"
+          id="password"
           className="form-field"
           type="text"
           name="username"
+          placeholder="password"
           value={userData.password}
           onChange={handlePasswordInputChange}
         />
-        <input type="submit" value="Signup" />
+        <input className="form-button" type="submit" value="Signup" />
       </form>
-      <Link to='/login'>Login</Link>
+      <Link className="signup-or-login" to='/login'>Login</Link>
+      </div>
     </div>
   );
 };

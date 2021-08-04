@@ -12,7 +12,7 @@ const QuestionsContainer = ({ questions }) => {
 
 
   const activeQuestionObjects = questions.map(
-    ({ id, title, description, url, creator, isopen }) => {
+    ({ id, title, description, creator, isopen }) => {
       // chrome dev tools is showing "isopen" as lowercase for some reason
       if(isopen){
         return (
@@ -21,7 +21,6 @@ const QuestionsContainer = ({ questions }) => {
             title={title}
             description={description}
             creator={creator}
-            chatURL={url}
           />
         );
       }
@@ -29,7 +28,7 @@ const QuestionsContainer = ({ questions }) => {
   );
 
   const inactiveQuestionObjects = questions.map(
-    ({ id, title, description, url, creator, isopen }) => {
+    ({ id, title, description, creator, isopen }) => {
       // chrome dev tools is showing "isopen" as lowercase for some reason
       if(!isopen){
       return (
@@ -38,7 +37,6 @@ const QuestionsContainer = ({ questions }) => {
         title={title}
         description={description}
         creator={creator}
-        chatURL={url}
       />
       );
     }
