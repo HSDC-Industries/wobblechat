@@ -4,10 +4,11 @@ const cookieParser = require("cookie-parser");
 
 //import routers
 const debugRouter = require("./routers/debug.js");
-const userRouter = require("./routers/user.js");
+const userRouter = require("./routers/userRouter.js");
 const globalErrorHandler = require("./routers/errors");
-const questionRouter = require("./routers/question.js");
-const messageRouter = require("./routers/message.js");
+const questionRouter = require("./routers/questionRouter.js");
+const messageRouter = require("./routers/messageRouter.js");
+const searchRouter = require("./routers/searchRouter.js");
 
 //parsing request body
 app.use(express.json());
@@ -21,6 +22,7 @@ app.get("/api/hello", (req, res) => {
 app.use("/api/users", userRouter);
 app.use("/api/questions", questionRouter);
 app.use("/api/messages", messageRouter);
+app.use("/api/search", searchRouter);
 // //route handler for main page
 // app.get('/', (req,res) => {
 //   res.sendFile(path.resolve(__dirname, '../client/index.html'));

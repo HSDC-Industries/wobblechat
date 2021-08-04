@@ -7,7 +7,7 @@ const messageController = {};
 //puts details into question
 messageController.getMessages = (req, res, next) => {
   //needs to pull existing Messages related to Questions (join tables)
-  const prevMessages = `SELECT messages.*, questions.url FROM messages INNER JOIN questions ON messages.questionId = questions.id AND questions.id = $1`;
+  const prevMessages = `SELECT messages.* FROM messages INNER JOIN questions ON messages.questionId = questions.id AND questions.id = $1`;
   const params = [req.params.id];
   pool
     .query(prevMessages, params)
