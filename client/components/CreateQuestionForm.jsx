@@ -32,7 +32,6 @@ const CreateQuestionForm = ({ setNewQuestion }) => {
       .catch((err) => {
         console.log("Error making fetch request in createQuestion", err);
       });
-    //alert(`This is what was submitted: ${title, description}`);
   }
 
   return (
