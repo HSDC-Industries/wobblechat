@@ -52,13 +52,15 @@ const Answer = () =>{
   }
 
   return (
-    <div className="answer-question">
+    <div className = 'maindiv'>
+      <div className="answer-question">
       <h2>{title}</h2>
       <p>{description}</p>
-      <ul>{previousAnswers ? previousAnswers.map(x => <li key={x.id}>{x.content}</li>) : null}</ul>
-      <input onChange={e => setAnswer(e.target.value)} placeholder="answer"></input>
-      <button onClick={handleClick}>Submit</button>
+      <ul id = "previousAnswers">{previousAnswers ? previousAnswers.map(x => <li key={x.id}>{x.content}</li>) : null}</ul>
+      <input id= 'changethis' onChange={e => setAnswer(e.target.value)} placeholder="Type here"></input>
+      <button id = 'submit' onClick={handleClick}>Submit</button>
       {/* //{redirect ? <Render {`/question/${id}`} /> : null} */}
+      </div>
     </div>
   )
 }
