@@ -1,0 +1,40 @@
+.header {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: space-between;
+  padding: 20px;
+
+  h1 {
+    width: 100%;
+    margin: 0px;
+  }
+
+  button {
+    padding: 10px;
+    font-size: 14px;
+    margin-left: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+  }
+
+}
+
+#chatButton {
+  width: 120px; 
+  background-color: rgb(252, 182, 152);
+  color: white;
+
+  &:hover {
+    background-color: rgb(218, 130, 92);
+  }
+}
+
+#signoutButton {
+  width: 80px;
+  &:hover {
+    background-color: lightgray;
+  }
+}
+
