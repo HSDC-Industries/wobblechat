@@ -1,0 +1,39 @@
+.ask-search-questions {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 0px;
+  align-items: center;
+  
+
+  h2 {
+    font-weight: 500;
+    font-size: 16px;
+    margin: 0px;
+    width: 150px;
+  }
+
+  input {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    width: 50%;
+    padding: 8px;
+    &:focus {
+      outline-color: rgb(218, 130, 92);
+    }
+  }
+
+  button {
+    padding: 10px;
+    font-size: 14px;
+    margin-left: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    width: 80px;
+    &:hover {
+      background-color: lightgray;
+    }
+  }
+}

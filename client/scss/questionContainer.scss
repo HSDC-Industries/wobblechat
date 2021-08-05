@@ -1,0 +1,31 @@
+.question-line {
+  display: flex;
+  justify-content: space-between;
+}
+
+.question-window {
+  border: 1px solid black;
+  margin: 20px 0px;
+  border-radius: 10px;
+  padding: 30px;
+  width: 60%;
+
+  h2 {
+    margin: 0px 0px 10px;
+  }
+
+  a {
+    border: .5px solid lightgray;
+    width: 100%;
+    margin: 4px 0px;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    padding: 4px 5px;
+    background-color: whitesmoke;
+    &:hover {
+      background-color: rgb(252, 182, 152);
+      border-color: white;
+    }
+  }
+}
