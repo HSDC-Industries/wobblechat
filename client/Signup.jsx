@@ -64,7 +64,7 @@ const Signup = (props) => {
         <input
           id="password"
           className="form-field"
-          type="text"
+          type="password"
           name="username"
           placeholder="password"
           value={userData.password}

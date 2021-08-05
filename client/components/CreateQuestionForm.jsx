@@ -28,6 +28,7 @@ const CreateQuestionForm = ({ setNewQuestion }) => {
       .then((response) => {
         console.log(response);
         setNewQuestion(true);
+        document.getElementById('questionInput').value = '';
       })
       .catch((err) => {
         console.log("Error making fetch request in createQuestion", err);
@@ -37,7 +38,7 @@ const CreateQuestionForm = ({ setNewQuestion }) => {
   return (
     <div className="ask-search-questions">
       <h2>Ask a Question:</h2>
-      <input type="text" placeholder="ask me anything" onChange={e => setTitle(e.target.value )}/>
+      <input id="questionInput" type="text" placeholder="ask me anything" onChange={e => setTitle(e.target.value )} />
       <button type="submit" onClick={handleSubmit}>Submit</button>
     </div>
   );

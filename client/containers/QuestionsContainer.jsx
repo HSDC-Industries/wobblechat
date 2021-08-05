@@ -13,7 +13,9 @@ const QuestionsContainer = ({ newQuestion }) => {
     fetch("/api/questions")
     .then((res) => res.json())
     .then((data) => {
-      setQuestions(data);
+
+      setQuestions(data.slice(0, 15));
+
     })
     .catch((err) =>
       console.log("error in NewMainAppContainer fetch: ", err)

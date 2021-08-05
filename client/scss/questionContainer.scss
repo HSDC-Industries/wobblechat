@@ -17,12 +17,14 @@
   a {
     border: .5px solid lightgray;
     width: 100%;
-    margin: 4px 0px;
+    margin: 6px 0px;
     text-decoration: none;
     color: black;
     font-size: 14px;
-    padding: 4px 5px;
+    padding: 6px 8px;
     background-color: whitesmoke;
+    max-width: 100%;
+    overflow-wrap: anywhere;
     &:hover {
       background-color: rgb(252, 182, 152);
       border-color: white;
