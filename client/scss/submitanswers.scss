@@ -5,9 +5,11 @@
     display: flex;
     flex-direction: column;
     align-items: center; 
-    margin-top: 40px;
+    margin: 20px 0px;
     h2 {
       margin: 10px 0px;
+      max-width: 80%;
+      overflow-wrap: anywhere;
     }
     p {
       margin: 0px 0px 10px;
@@ -15,9 +17,11 @@
 }
 
 .maindiv{
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 #previousAnswers{
@@ -33,16 +37,17 @@
     background-color: $BackgroundGray;
     font-size: 14px;
     padding: 4px 5px;
-    margin: 4px 0px;
+    margin: 5px 0px;
     max-width: 100%;
     word-wrap: break-word;
 }
 #changethis{
     border-radius: 5px;
     border: 1px solid $ButtonOutlineGray;
-    width: 80%;
+    width: 78%;
     padding: 8px;
-    margin-top: 10px;
+    margin-top: 20px;
+    word-wrap: break-word;
     &:focus {
       outline-color: rgb(218, 130, 92);
     }
