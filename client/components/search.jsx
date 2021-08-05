@@ -6,8 +6,9 @@ const Search = () =>{
 
   
   return(
-    <div>
-      <input placeholder = "Search for" onChange={e => setSearchTerm(e.target.value)}></input>
+    <div className="ask-search-questions">
+      <h2>Search Questions:</h2>
+      <input placeholder="enter keyword" onChange={e => setSearchTerm(e.target.value)}></input>
       <Link to={{
         pathname:`/searchResults`,
         state:{

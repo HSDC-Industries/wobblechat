@@ -10,8 +10,10 @@ const newMainAppContainer = () =>{
   return (
     <div className="main-container">
       <Header />
-      <CreateQuestionForm setNewQuestion={setNewQuestion} />
-      <Search />
+      <div className="main-page-inputs">
+        <CreateQuestionForm setNewQuestion={setNewQuestion} />
+        <Search />
+      </div>
       <QuestionsContainer newQuestion={newQuestion} />
     </div>
   )
