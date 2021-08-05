@@ -10,17 +10,13 @@ const Answer = () =>{
   const [redirect, toggleRedirect] = useState(true);
   //display the question
   //get other answer and display them
-  console.log('this is id, title, description', id, title, description);
 
   useEffect(() => {
-    console.log('fetch to messages happening');
     fetch(`/api/messages/${id}`)
       .then(response =>
         response.json()
       )
       .then(data => {
-        console.log('fetch request to messages ok');
-        console.log('this is data', data);
         setPreviousAnswers(data.slice(-10));
       })
       .catch(err => {
@@ -44,7 +40,7 @@ const Answer = () =>{
       .then((response) => {
         console.log('about to redirect: ', response);
         redirect ? toggleRedirect(false) : toggleRedirect(true);
-        //<Redirect to={`/question/${id}`} />;
+        document.getElementById('changethis').value='';
       })
       .catch((err) => {
         console.log("Error making fetch request in createQuestion", err);
@@ -57,8 +53,8 @@ const Answer = () =>{
       <h2>{title}</h2>
       <p>{description}</p>
       <ul id = "previousAnswers">{previousAnswers ? previousAnswers.map(x => <li key={x.id}>{x.content}</li>) : null}</ul>
-      <input id= 'changethis' onChange={e => setAnswer(e.target.value)} placeholder="Type here"></input>
-      <button id = 'submit' onClick={handleClick}>Submit</button>
+      <input id='changethis' onChange={e => setAnswer(e.target.value)} placeholder="share your answer"></input>
+      <button id ='submitAnswer' onClick={handleClick}>Submit</button>
       {/* //{redirect ? <Render {`/question/${id}`} /> : null} */}
       </div>
     </div>

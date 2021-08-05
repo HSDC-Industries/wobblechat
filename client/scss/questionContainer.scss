@@ -23,6 +23,8 @@
     font-size: 14px;
     padding: 4px 5px;
     background-color: whitesmoke;
+    max-width: 100%;
+    overflow-wrap: anywhere;
     &:hover {
       background-color: rgb(252, 182, 152);
       border-color: white;

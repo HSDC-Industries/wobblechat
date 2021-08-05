@@ -1,40 +1,64 @@
 .answer-question{ 
     border: 1px solid black; 
+    border-radius: 10px;
     width: 60%;
-    height: 90%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    
+    align-items: center; 
+    margin-top: 40px;
+    h2 {
+      margin: 10px 0px;
+    }
+    p {
+      margin: 0px 0px 10px;
+    }
 }
+
 .maindiv{
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid blue;
-
 }
+
 #previousAnswers{
     list-style-type: none;
     width: 80%;
     padding: 0;
     height: 70%;
+    margin: 0px;
 }
+
 #previousAnswers > li{
-    border: 1px solid black;
-    padding: 5px;
-    margin: 10px;
+    border: .5px solid $ButtonOutlineGray;
+    background-color: $BackgroundGray;
+    font-size: 14px;
+    padding: 4px 5px;
+    margin: 4px 0px;
     max-width: 100%;
     word-wrap: break-word;
 }
 #changethis{
     border-radius: 5px;
-    width: 70%;
-    height: 100px;
+    border: 1px solid $ButtonOutlineGray;
+    width: 80%;
+    padding: 8px;
+    margin-top: 10px;
+    &:focus {
+      outline-color: rgb(218, 130, 92);
+    }
 }
-#submit{
-    margin: 20px 0 20px 0;
-    border-radius: 5px;
-    padding: 5px;    
+
+#submitAnswer{
+  padding: 10px;
+  font-size: 14px;
+  margin: 20px 0px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  width: 80px;
+  color: white;
+  background-color: $BackgroundAccent;
+  &:hover {
+    background-color: $HoverOutlineAccent;
+  }
 }
