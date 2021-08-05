@@ -1,0 +1,83 @@
+.chat-main-div {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  border-radius: 10px;
+  width: 60%;
+  min-height: 50vh;
+  background-color: whitesmoke;
+  
+  .chat-list{
+    margin-top: 10px;
+ 
+  }
+
+  ul {
+    margin: 0px;
+    text-align: center;
+    padding: 10px 10px;
+  }
+  
+
+  .chat-input {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    width: 100%;
+    margin: 0px 0px 10px;
+  }
+  input {
+    width: 70%;
+    padding: 5px 10px;
+    border: .5px solid lightgray;
+    border-radius: 5px;
+    margin-right: 5px;
+    &:focus{
+      outline-color: $HoverOutlineAccent;
+    }
+  }
+
+  button {
+    color: white;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    font-size: 14px;
+    background-color: $BackgroundAccent;
+    :hover {
+      background-color: $HoverOutlineAccent;
+    }
+  }
+
+  li {
+    max-width: 80%;
+    list-style-type: none;
+    margin: 5px 0;
+    border-radius: 1.15rem;
+    padding: 0.5rem .875rem;
+    background-color: $ButtonOutlineGray;
+    border: 1px solid $ButtonOutlineGray;
+  }
+ 
+  li:nth-of-type(odd) {
+    background-color: $BackgroundAccent;
+    border: 1px solid $BackgroundAccent;
+    border-radius: 1.15rem;
+    padding: 0.5rem .875rem;
+
+  }
+  
+}
+#time{
+    color: rgb(60, 60, 64);
+}
