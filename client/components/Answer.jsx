@@ -40,6 +40,9 @@ const Answer = () =>{
       .then((response) => {
         console.log('about to redirect: ', response);
         redirect ? toggleRedirect(false) : toggleRedirect(true);
+
+        //<Redirect to={`/question/${id}`} />;
+
         document.getElementById('changethis').value='';
       })
       .catch((err) => {

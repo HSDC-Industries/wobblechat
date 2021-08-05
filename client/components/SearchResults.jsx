@@ -23,7 +23,10 @@ const SearchResults = () => {
   }, [searchComplete])
 
   return !searchComplete ? <div>Please wait, loading</div> : (
-    <ul>
+    <div id = 'outerdiv'>
+    <div id = 'innerdiv'>
+    <p> These are your search results for <span id = 'searchword'>{searchTerm} </span> </p>
+    <ul id = 'search-results'>
       {searchResults.map(x => <Link to={{
         pathname: `/question/${x.id}`,
         state: {
@@ -33,6 +36,8 @@ const SearchResults = () => {
         }
         }}><li key={x.id}>{x.title}</li></Link>)}
     </ul>
+    </div>
+    </div>
   )
 }
 
