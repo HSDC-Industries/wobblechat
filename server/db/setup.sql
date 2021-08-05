@@ -27,3 +27,10 @@ CREATE TABLE IF NOT EXISTS messages (
   questionId integer REFERENCES questions(id),
   content text NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS chats (
+  id SERIAL PRIMARY KEY,
+  dateCreated date NOT NULL,
+  content text NOT NULL,
+  creator integer REFERENCES users(id) NOT NULL
+)
