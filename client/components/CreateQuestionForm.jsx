@@ -37,7 +37,7 @@ const CreateQuestionForm = ({ setNewQuestion }) => {
   return (
     <div className="ask-search-questions">
       <h2>Ask a Question:</h2>
-      <input type="text" placeholder="ask me anything" onChange={e => setTitle(e.target.value )}/>
+      <input type="text" placeholder="ask me anything" onChange={e => setTitle(e.target.value )} />
       <button type="submit" onClick={handleSubmit}>Submit</button>
     </div>
   );
