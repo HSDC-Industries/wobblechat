@@ -29,7 +29,7 @@ const QuestionCard = (props) => {
           description: description
         }
         }}>
-        <span>{`${title}: `}{description}</span>
+        <span>{title}{` ${description}`}</span>
      </Link>
     </div>  
   );
