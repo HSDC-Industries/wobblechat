@@ -45,6 +45,7 @@ const Answer = () =>{
         console.log('about to redirect: ', response);
         redirect ? toggleRedirect(false) : toggleRedirect(true);
         //<Redirect to={`/question/${id}`} />;
+        document.getElementById('changethis').value='';
       })
       .catch((err) => {
         console.log("Error making fetch request in createQuestion", err);
