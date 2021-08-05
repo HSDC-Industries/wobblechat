@@ -1,16 +1,30 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { io } from "socket.io-client";
+import ChatMessage from "./ChatMessage";
+const SERVER='http://127.0.0.1:3001' // is 3001 the right port
+const NEW_MESSAGE_EVENT = 'new_message-event'
 
-//import logo from './assets/chat_logo.png';
+const Chat = () => {
+  const [messages, setMessages] = useState([]);
+  const [anonUserName, setAnonUserName] = useState('');
+  const [newMessage, setNewMessage] = useState('');
+  const socket = io(SERVER);
 
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Card from 'react-bootstrap/Card';
-
-
-function Chat() {
-
-  // var socket = io();
+  
+  useEffect(() => {
+    //turns server on,
+    socket.on(NEW_MESSAGE_EVENT, message => { // TODO get event name from server
+      console.log('connected to the server');
+      const incomingMessage = {
+        ...message,
+      };
+      setMessages((messages) => [...messages, incomingMessage]);
+    });
+      
+    socket.emit()
+    //clean up when component unmounts
+    return () => socket.disconnect();
+  }, []);
 
   // var messages = document.getElementById('messages');
   // var form = document.getElementById('form');
@@ -32,29 +46,20 @@ function Chat() {
   // });
   
 
-    return (
-
-      <>
-
- 
- 
-
-      <div className="App">
-      <ul id="messages">
-        <li>Message 1</li>
-        <li>Message 2</li>
-        <li>Message 3</li>
-        <li>Message 4</li>
-      </ul>
-    <form id="form-chat" action="">
-      <input id="input-chat" /><button>Send</button>
-    </form>
+  return (
+    <div className="chat-page">
+      <div>
+        <input placeholder="choose your username" onChange={e => setAnonUserName(e.target.value )}></input>
       </div>
-
-
-</>
-
-    );
+      {messages !== [] ? <div id="messages">
+        {messages.map(x => <ChatMessage key={x.id} time={x.dateCreated} creator={x.creator} content={x.content}/>)};
+      </div> : 
+      <div className="no-messages">no messages</div>}
+      <div className="add-chat-message">
+        <input id="input-chat" placeholder="chat message" onChange={e => setNewMessage(e.target.value )}/><button>Send</button>
+      </div>
+    </div>
+  );
 }
 
 export default Chat;
