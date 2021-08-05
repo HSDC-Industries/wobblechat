@@ -73,11 +73,21 @@ describe('Route integration', () => {
     })
   })
   //test /api/messages - POST to /
-  describe('/api/messages', () => {
+  xdescribe('/api/messages', () => {
     it('responds with 200 status and application/json', () => {
       return request(server)
         .post('/api/messages')
         .send({ questionId: 7, content: 'answer testtest' })
+        .expect('Content-Type', /application\/json/)
+        .expect(200);
+    })
+  })
+
+  describe('/api/search', () => {
+    it('responds with 200 status and application/json', () => {
+      return request(server)
+        .get('/api/search')
+        .send({ searchTerm: 'test' })
         .expect('Content-Type', /application\/json/)
         .expect(200);
     })
