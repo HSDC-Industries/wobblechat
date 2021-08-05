@@ -13,7 +13,7 @@ const QuestionsContainer = ({ newQuestion }) => {
     fetch("/api/questions")
     .then((res) => res.json())
     .then((data) => {
-     
+
       setQuestions(data);
     })
     .catch((err) =>

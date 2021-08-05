@@ -14,6 +14,11 @@
     border: 1px solid black;
     border-radius: 10px;
     width: 300px;
+    padding: 10px;
+    
+    input {
+      padding: 5px;
+    }
 }
 //TODO box shadow
 
@@ -25,19 +30,32 @@
     display: flex;
     flex-direction: column;
     margin: 0 0 10px 0;
-    padding: 5px;
     align-items: center;
+    &:focus {
+      outline-color: rgb(218, 130, 92);
+    }
+    width: 200px;
 }
 .form-button{
-    padding: 5px 20px;
-    border-radius: 5px;
-    margin: 10px 0px;
+  width: 80px;
+  padding: 10px;
+  font-size: 14px;
+  margin: 10px 0px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  &:hover {
+    background-color: lightgray;
+  }
 }
 
 .signup-or-login{
   margin: 10px 0px 0px;
-  font-size: 12px; 
+  font-size: 14px; 
   color: black;
+  &:hover {
+    color:rgb(218, 130, 92);
+  }
 }
 
 form {

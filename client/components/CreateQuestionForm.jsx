@@ -32,31 +32,14 @@ const CreateQuestionForm = ({ setNewQuestion }) => {
       .catch((err) => {
         console.log("Error making fetch request in createQuestion", err);
       });
-    //alert(`This is what was submitted: ${title, description}`);
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Title:
-        <input
-        type="text" 
-        value={title} 
-        onChange={e => setTitle(e.target.value )}
-        />
-      </label>
-      <br/>
-      <label>
-        Description:
-        <input
-        type="text" 
-        value={description} 
-        onChange={e => setDescription(e.target.value )}
-        />
-      </label>
-      <br/>
-      <input type="submit" value="Submit" />
-    </form>
+    <div className="ask-search-questions">
+      <h2>Ask a Question:</h2>
+      <input type="text" placeholder="ask me anything" onChange={e => setTitle(e.target.value )}/>
+      <button type="submit" onClick={handleSubmit}>Submit</button>
+    </div>
   );
 }
 
