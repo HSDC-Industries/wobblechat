@@ -6,8 +6,7 @@ import Signup from "./Signup";
 import Answer from "./components/Answer";
 import ProtectedRoute from "./ProtectedRoute";
 import SearchResults from "./components/SearchResults";
-//import "./stylesheets/styles.css";
-//import "bootstrap/dist/css/bootstrap.min.css";
+import Chat from "./components/Chat";
 
 const App = () => {
   return (
@@ -16,6 +15,7 @@ const App = () => {
       <Route path="/signup" component={Signup} />
       <Route path="/question/:id" component={Answer} />
       <Route path="/searchResults" component={SearchResults} />
+      <Route path="/chat" component={Chat} />
       <ProtectedRoute exact={true} path="/">
         <NewMainAppContainer/>
       </ProtectedRoute>

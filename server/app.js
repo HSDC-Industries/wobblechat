@@ -1,16 +1,19 @@
 const express = require("express");
 const app = express();
+const socketApp = express();
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-const socketPort = 8000;
-const { emit } = require("process");
-const server = require("http").createServer(app);
+// const socketPort = 8000;
+// const { emit } = require("process");
+const server = require("http").createServer(socketApp);
+const NEW_MESSAGE_EVENT = "new-message-event";
+
 const io = require("socket.io")(server, {
-  cors: {
-    origin: "http://localhost:3001",
-    methods: ["GET", "POST"],
-  },
+  cors: true,
+  origins:["localhost:3001"]
 });
+
+
 
 //import routers
 const debugRouter = require("./routers/debug.js");
@@ -26,6 +29,20 @@ app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 if (process.env.NODE_ENV === "development") app.use(debugRouter);
+
+const room = "general"
+
+io.on("connect", (socket) => {
+  socket.join(room);
+
+  socket.on(NEW_MESSAGE_EVENT, (data) => {
+    io.in(room).emit(NEW_MESSAGE_EVENT, data);
+  });
+
+  socket.on("disconnect", () => {
+    socket.leave(room);
+  });
+});
 
 app.get("/api/hello", (req, res) => {
   res.status(200).json({ hello: "world" });
@@ -46,3 +63,7 @@ app.use(globalErrorHandler); // Added global error middlware
 app.listen(3000, () => {
   console.log("Express server listening on port 3000.");
 });
+
+server.listen(3001, () => {
+  console.log("Socket server listening on port 3001.");
+})

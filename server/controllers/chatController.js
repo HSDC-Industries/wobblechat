@@ -55,4 +55,20 @@ chatController.getSocketMessages = () => {
   })
 }
 
+chatController.createSocketMessage = (message) => {
+  return new Promise((resolve) => {
+    pool.query(
+       "INSERT INTO chats (content, dateCreated, creator) VALUES ($1, $2, $3) RETURNING content, dateCreated, creator",
+       [message.text, new Date().toLocaleString(), message.username],
+       (error, results) => {
+          if (error) {
+             throw error;
+          }
+          resolve(results.rows);
+       }
+    );
+ });
+
+}
+
 module.exports = chatController;
